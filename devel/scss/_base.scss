@@ -1,0 +1,75 @@
+// /* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+
+// /*-------------------------------------------- Default */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: $main-color;
+    background: $body-color;
+    font: #{$main-font-size}px / $main-line-height $main-font-family;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+::selection {
+    color: #fff;
+    background: #f07f20;
+}
+::-moz-selection {
+    color: #fff;
+    background: #f07f20;
+}
+
+p { padding: 15px 0 0; }
+
+em { font-style: normal; }
+
+// a {
+//     color: $main-link-color;
+//     transition: .2s ease-in-out;
+//     outline: none;
+//     &:hover {
+//         color: $main-link-color-hover;
+//     }
+// }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px 15px;
+    color: $main-color;
+    background: #f5f1f1;
+    outline: none;
+    transition: .2s ease-in-out;
+    &:focus {
+        background: #e1fcff;
+        border-color: #00aeef;
+    }
+}
+
+button {
+    font-family: $main-font-family;
+}
+
+
+
+
+
+
+
+

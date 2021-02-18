@@ -1,0 +1,379 @@
+@import "scss/variables";
+@import "scss/mixin";
+@import "scss/reset";
+@import "scss/base";
+
+
+
+
+
+
+// /*------------------------------------- Header */
+header {}
+
+
+
+/*------------------------------------ Content */
+main {}
+
+.container {
+  max-width: 1440px;
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+}
+.left-box {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  max-width: 290px;
+  height: auto;
+  background-color: #1A1A1A;
+  box-sizing: border-box;
+  border-radius: 0 20px 20px 0;
+  box-shadow: 2px 0 10px rgba(18, 18, 18, 0.398437);
+  @media screen and (min-width: 320px) and (max-width: 499px) {
+    display:none;
+  }
+  &__logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
+  &__menu {
+    display: flex;
+    flex-flow: column wrap;
+    flex-grow: 1;
+    &-box {
+      margin: 50px 0 34px 0;
+      .icon {
+        display: block;
+        width: 16px;
+        height: 16px;
+        overflow: hidden;
+        margin-right: 11px;
+        &--user {
+          background-image: url(../img/user-icon.png);
+        }
+        &--gallery {
+          background-image: url(../img/gallery-icon.png);
+        }
+        &--message {
+          background-image: url(../img/message-icon.png);
+        }
+        &--favorite {
+          background-image: url(../img/heart-icon.png);
+        }
+      }
+      li {
+        padding-left: 69px;
+        @include font (18, 26);
+        color: #8A8A8A;
+        cursor: pointer;
+        @media screen and (max-width: 659px) {
+          padding-left: 20px;
+        }
+        @media screen and (min-width: 500px) and (max-width: 659px) {
+          font-size: 12px;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          padding: 10px 0;
+        }
+        &:hover {
+          box-shadow: inset 0 0 0 4px #246CE2;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+      }
+      .active {
+        display: flex;
+        color: #FB8251;
+        a {
+          width: calc(100% - 4px);
+          span {
+            background-position: 0 -16px;
+          }
+        }
+        &:after {
+          content: "";
+          display: block;
+          width: 4px;
+          height: 46px;
+          border-radius: 2px 0  0 2px;
+          background-color: #FB8251;
+        }
+      }
+      &--exit {
+        padding-left: 69px;
+        @include font (18, 26);
+        color: #8A8A8A;
+        cursor: pointer;
+        margin-bottom: 32px;
+        a {
+          display: flex;
+          align-items: center;
+          margin: 10px 0;
+          img {
+            padding-right: 11px;
+          }
+        }
+        &:hover {
+          box-shadow: inset 0 0 0 4px #246CE2;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+  &__fill {
+    &-notification {
+      border-radius: 12px;
+      background-color: #414141;
+      padding: 16px;
+      
+      margin: 8px 21px 0;
+      p {
+        @include font (18,26);
+        color: #FFF;
+        padding-top: 0;
+      }
+      span {
+        display: block;
+        @include font (14,17.5);
+        color: rgba(255, 255, 255, 0.5);
+        margin: 8px 0 0;
+      }
+    }
+  }
+}
+.header-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 38px 0;
+  span {
+    @include font (34, 49);
+    color: #121212;
+  }
+  &__notification {
+    display: flex;
+    align-items: center;
+    a {
+      margin-left: 37px;
+    }
+    &-search {
+      width: 26px;
+      height: 26px;
+    }
+    &-notif {
+      width: 22px;
+      height: 26px;
+      &--active {
+        position: relative;
+        &::before {
+          content: "";
+          width: 8.75px;
+          height: 8.75px;
+          border-radius: 50%;
+          background-color: #FB8251;
+          @include abstr (0, 0)
+        }
+      }
+    }
+    &-profile {
+      width: 49px;
+      height: 49px;
+      img {
+        border-radius: 12px;
+      }
+    }
+  }
+}
+.flame-box {
+  width: 100%;
+  max-width: 1150px;
+  height: auto;
+  padding: 0 48px;
+  margin-bottom: 49px;
+  &__content {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 32px 31px;
+    &-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      /*justify-content: center;*/
+      row-gap: 24px;
+      column-gap: 24px;
+      li {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        & > img {
+          width: 179px;
+          height: 189px;
+          object-fit: cover;
+          display: block;
+          border-radius: 8px;
+        }
+        &:hover {
+          .content-gallery__box, .content-gallery__preview {
+          display: block;
+          }
+        }
+        .content-gallery__box {
+          display: none;
+          @include abstl (0,0);
+          border-radius: 8px;
+          z-index: 1;
+          width: 100%;
+          height: 189px;
+          background-color: #121212;
+          opacity: .4;
+        }
+        .content-gallery__preview {
+          display: none;
+          @include abstr (10px, 17px);
+          z-index: 2;
+          li {
+            box-sizing: border-box;
+            border: 1px solid #fff;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            a{
+              width: 30px;
+              height: 30px;
+              padding: 7px;
+              .preview-icon {
+                display: block;
+                width: 16px;
+                height: 16px;
+                overflow: hidden;
+                margin: 0;
+                &--message {
+                  background: url(../img/chat-icon.png) no-repeat;
+                  background-position: 0 -32px;
+                }
+                &--video {
+                  background: url(../img/video-call-icon.png) no-repeat;
+                }
+                &--favorite {
+                  background: url(../img/heart-icon.png) no-repeat;
+                  background-position: 0 -32px;
+                  &-active {
+                    background-position: 0 -48px;
+                  }
+                }
+                &--gift {
+                  background: url(../img/gift-icon.png) no-repeat;
+                }
+              }
+            }
+          }
+        } 
+        span {
+          display: flex;
+          align-items: center;
+          @include font (20, 29);
+          color: #121212;
+          margin-top: 8px;
+        }
+      }
+      .on-line {
+        &:before {
+          content: "";
+          display: inline-block;
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          background-color: #29C318;
+          margin-right: 10px;
+        }
+      }
+      .off-line {
+        &:before {
+          content: "";
+          display: inline-block;
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          background-color: #FB8251;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .button-box__bottom {
+    display: flex;
+    justify-content: center;
+  }
+}
+.profile-man {
+  &__box {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #FFF;
+    &-top {
+      border-bottom: 1px solid #E7E7E7;
+      .row {
+        display: flex;
+        flex-flow: row nowrap;
+      }
+    }
+    p {
+      @include font (30,43);
+      padding: 30px 0 32px 32px;
+    }
+  }
+}
+.button-outline {
+  @include font (17, 25);
+  padding: 3px 16px;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 8px;
+  margin: 0 8px 24px 0;
+  &__active {
+    background-color: #FFF2EC;
+    color: #FB8251;
+  }
+  &__default {
+    background-color: #fff;
+    color: #121212;
+    opacity: 0.4;
+  }
+  &__black {
+    @include font (14,17.5);
+    background-color: #FFF;
+    color: rgba(18, 18, 18, 1);
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin-top: 8px;
+  }
+}
+.button-rounded {
+  &__default {
+    @include font (18, 26);
+    padding: 10px 23px;
+    box-sizing: border-box;
+    background-color: #FB8251;
+    border: 1px solid;
+    border-radius: 14px;
+    color: #fff;
+    margin-top: 24px;
+  }
+}
+
+
+
+/*------------------------------------- Footer */
+footer {}
+/*-------------------------------------------  */
+
+
+

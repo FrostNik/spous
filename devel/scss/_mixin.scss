@@ -1,0 +1,146 @@
+// Mixin
+@mixin clearfix() {
+	clear: both;
+    &:before {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}
+
+
+//------------------------------------------------- Font
+@mixin font ($custom-size: $main-font-size, $custom-line-height: $custom-size, $custom-weight: normal) {
+	font: {
+	size: (#{$custom-size}px);
+	weight: $custom-weight;
+	}
+	line-height: ($custom-line-height / $custom-size);
+}
+
+//--------------------------------------------- Absolute
+@mixin abs ($custom-top: auto, $custom-left: auto, $custom-right: auto, $custom-bottom: auto, $custom-position: absolute) {
+	top: $custom-top;
+	left: $custom-left;
+	right: $custom-right;
+	bottom: $custom-bottom;
+	position: $custom-position;
+}
+
+@mixin abst ($custom-top: auto, $custom-position: absolute) {
+	top: $custom-top;
+	position: $custom-position;
+}
+@mixin absl ($custom-left: auto, $custom-position: absolute) {
+	left: $custom-left;
+	position: $custom-position;
+}
+@mixin absr ($custom-right: auto, $custom-position: absolute) {
+	right: $custom-right;
+	position: $custom-position;
+}
+@mixin absb ($custom-bottom: auto, $custom-position: absolute) {
+	bottom: $custom-bottom;
+	position: $custom-position;
+}
+@mixin abstl ($custom-top: auto, $custom-left: auto, $custom-position: absolute) {
+	top: $custom-top;
+	left: $custom-left;
+	position: $custom-position;
+}
+@mixin abstr ($custom-top: auto, $custom-right: auto, $custom-position: absolute) {
+	top: $custom-top;
+	right: $custom-right;
+	position: $custom-position;
+}
+@mixin abstb ($custom-top: auto, $custom-bottom: auto, $custom-position: absolute) {
+	top: $custom-top;
+	bottom: $custom-bottom;
+	position: $custom-position;
+}
+@mixin abslr ($custom-left: auto, $custom-right: auto, $custom-position: absolute) {
+	left: $custom-left;
+	right: $custom-right;
+	position: $custom-position;
+}
+@mixin abslb ($custom-left: auto, $custom-bottom: auto, $custom-position: absolute) {
+	left: $custom-left;
+	bottom: $custom-bottom;
+	position: $custom-position;
+}
+@mixin absrb ($custom-right: auto, $custom-bottom: auto, $custom-position: absolute) {
+	right: $custom-right;
+	bottom: $custom-bottom;
+	position: $custom-position;
+}
+
+//--------------------------------------------- Links styles
+
+
+@mixin link-decoration ($decoration) {
+	@if $decoration == nu {
+		text-decoration: none;
+		&:hover { text-decoration: underline; }	
+	}
+	@else if $decoration == un {
+		text-decoration: underline;
+		&:hover { text-decoration: none; }
+	}
+	@else if $decoration == nn {
+		text-decoration: none;
+		&:hover { text-decoration: none; }
+	}
+	@else {
+		text-decoration: underline;
+		&:hover { text-decoration: underline; }
+	}	
+}
+
+@mixin link-color ($custom-color: $main-link-color, $custom-color-hover: $main-link-color-hover) {
+	color: $custom-color;
+	&:hover { color: $custom-color-hover; }
+}
+
+
+
+//------------------------------------------ Before && After
+
+
+@mixin before {
+	&:before {
+		content: "";
+		display: inline-block;
+		@content;
+	}
+}
+@mixin after {
+	&:after {
+		content: "";
+		display: inline-block;
+		@content;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

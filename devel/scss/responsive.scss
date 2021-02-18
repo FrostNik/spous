@@ -1,0 +1,9 @@
+@media screen and (max-width: 660px) {
+  .left-box {
+    &__menu {
+      li {
+        padding-left: 20px;
+      }
+    }
+  }
+}
