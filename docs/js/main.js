@@ -1,14 +1,13 @@
 $(function () {
-  $('.left-box__video-box').on('click', function (e) {
-    $(this).find('.video-item__dropdown-menu').slideToggle(200);
-    $(this).find('.test').toggleClass('active');
+  $('.dropdown-wrap').on('click', function (e) {
+    $(this).find('.dropdown-content').slideToggle(200);
+    $(this).find('.dropdown-btn').toggleClass('active');
     e.preventDefault();
   });
   $(document).on('click', function(e) {
-    if (!$(e.target).closest('.left-box__video-box').length) {
-      $('.test').removeClass('active');
-      $('.video-item__dropdown-menu').slideUp(200);
+    if (!$(e.target).closest('.dropdown-wrap').length) {
+      $('.dropdown-btn').removeClass('active');
+      $('.dropdown-content').slideUp(200);
     }
   });
-
 })

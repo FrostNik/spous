@@ -163,7 +163,7 @@ main {}
         @include font (18,26);
         color: $white;
       }
-      .test {
+      & > a {
         display: inline-block;
         width: 24px;
         height: 24px;
@@ -666,7 +666,8 @@ main {}
         &-more {
           display: flex;
           align-items: center;
-          a {
+          position: relative;
+          & > a {
             display: inline-block;
             width: 24px;
             height: 24px;
@@ -683,11 +684,61 @@ main {}
             }
           }
           &__dropdown {
-            @include font (14,17.5);
-            color: $gray50;
+            display: none;
+            width: max-content;
             padding: 12px;
             border-radius: 8px;
             border: 1px solid $gray20;
+            background-color: $white;
+            position: absolute;
+            right: 0;
+            top: 32px;
+            li {
+              &:not(:first-child) {
+                margin-top: 8px;
+              }
+              & > a {
+                @include font (14,17.5);
+                color: $gray50;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                &:before {
+                  content: "";
+                  display: inline-block;
+                  width: 16px;
+                  height: 16px;
+                  margin-right: 12px;
+                }
+              }
+            }
+            .dropdown-item {
+              &--favorite {
+                &::before {
+                  background: url(../img/heart-icon.png) 0 0 no-repeat;
+                }
+              }
+              &--notvideo {
+                &::before {
+                  background: url(../img/video-call-icon.png) 0 -32px no-repeat;
+                }
+              }
+              &--notonline {
+                &::before {
+                  background: url(../img/video-call-icon.png) 0 -48px no-repeat;
+                }
+              }
+              &--anchor {
+                &::before {
+                  background: url(../img/video-call-icon.png) 0 -64px no-repeat;
+                }
+              }
+              &--delchat {
+                &::before {
+                  background: url(../img/video-call-icon.png) 0 -80px no-repeat;
+                }
+              }
+            }
           }
         }
       }
@@ -988,7 +1039,7 @@ main {}
       &:before {
         background: url(../img/video-call-icon-24.png) 0 0 no-repeat;
       }
-      &-off {
+      &.active {
         background-color: $green;
         &:before {
           background: url(../img/video-call-icon-24.png) 0 -24px no-repeat;
