@@ -22,13 +22,14 @@ main {}
   display: flex;
   margin: 0 auto;
 }
+/*---------------------------- Left menu */
 .left-box {
   display: flex;
   flex-flow: column wrap;
   width: 100%;
   max-width: 290px;
   height: auto;
-  background-color: #1A1A1A;
+  background-color: $black;
   box-sizing: border-box;
   border-radius: 0 20px 20px 0;
   box-shadow: 2px 0 10px rgba(18, 18, 18, 0.398437);
@@ -46,7 +47,7 @@ main {}
     flex-flow: column wrap;
     flex-grow: 1;
     &-box {
-      margin: 50px 0 34px 0;
+      margin-top: 50px;
       .icon {
         display: block;
         width: 16px;
@@ -54,22 +55,25 @@ main {}
         overflow: hidden;
         margin-right: 11px;
         &--user {
-          background-image: url(../img/user-icon.png);
+          background: url(../img/user-icon.png) 0 0 no-repeat;
         }
         &--gallery {
-          background-image: url(../img/gallery-icon.png);
+          background: url(../img/gallery-icon.png) 0 0 no-repeat;
         }
-        &--message {
-          background-image: url(../img/message-icon.png);
+        &--chat {
+          background: url(../img/chat-icon.png) 0 0 no-repeat;
+        }
+        &--letters {
+          background: url(../img/message-icon.png) 0 0 no-repeat;
         }
         &--favorite {
-          background-image: url(../img/heart-icon.png);
+          background: url(../img/heart-icon.png) 0 0 no-repeat;
         }
       }
       li {
         padding-left: 69px;
         @include font (18, 26);
-        color: #8A8A8A;
+        color: $gray50;
         cursor: pointer;
         @media screen and (max-width: 659px) {
           padding-left: 20px;
@@ -83,14 +87,14 @@ main {}
           padding: 10px 0;
         }
         &:hover {
-          box-shadow: inset 0 0 0 4px #246CE2;
+          box-shadow: inset 0 0 0 4px $blue;
           border-radius: 4px;
           box-sizing: border-box;
         }
       }
       .active {
         display: flex;
-        color: #FB8251;
+        color: $primary;
         a {
           width: calc(100% - 4px);
           span {
@@ -103,13 +107,13 @@ main {}
           width: 4px;
           height: 46px;
           border-radius: 2px 0  0 2px;
-          background-color: #FB8251;
+          background-color: $primary;
         }
       }
       &--exit {
         padding-left: 69px;
         @include font (18, 26);
-        color: #8A8A8A;
+        color: $gray50;
         cursor: pointer;
         margin-bottom: 32px;
         a {
@@ -121,7 +125,7 @@ main {}
           }
         }
         &:hover {
-          box-shadow: inset 0 0 0 4px #246CE2;
+          box-shadow: inset 0 0 0 4px $blue;
           border-radius: 4px;
           box-sizing: border-box;
         }
@@ -131,24 +135,118 @@ main {}
   &__fill {
     &-notification {
       border-radius: 12px;
-      background-color: #414141;
+      background-color: $gray70;
       padding: 16px;
       
-      margin: 8px 21px 0;
+      margin: 42px 21px 0;
       p {
         @include font (18,26);
-        color: #FFF;
+        color: $white;
         padding-top: 0;
       }
       span {
         display: block;
         @include font (14,17.5);
-        color: rgba(255, 255, 255, 0.5);
+        color: $gray50;
         margin: 8px 0 0;
       }
     }
   }
+  &__video {
+    margin: 26px 36px 0;
+    &-box {
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row wrap;
+      margin-bottom: 16px;
+      span {
+        @include font (18,26);
+        color: $white;
+      }
+      .test {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: url(../img/dots+gift.png) 0 -48px no-repeat;
+        &.active {
+          background-position: 0 -72px;
+        }
+      }
+      .video {
+        &-item {
+          overflow: hidden;
+          border-radius: 12px;
+          margin-top: 8px;
+          position: relative;
+          img {
+            display: block;
+          }
+          &__dropdown {
+            &-menu {
+              display: none;
+              width: 100%;
+              @include font (14,17.5);
+              background-color: $white;
+              border-radius: 8px;
+              padding: 12px;
+              @include abstl (0, 0);
+              z-index: 1;
+              a {
+                color: $gray50;
+                display: flex;
+                align-items: center;
+                &::before {
+                  content: "";
+                  display: inline-block;
+                  width: 16px;
+                  height: 16px;
+                  background: url(../img/video-call-icon.png) 0 -32px no-repeat;
+                  margin-right: 10px;
+                }
+              }
+              a + a {
+                margin-top: 8px;
+                &::before {
+                  background-position: 0 -48px;
+                }
+              }
+              
+            }
+          }
+          &__preview {
+            width:100%;
+            height: auto;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            justify-content: space-between;
+            padding: 8px;
+            a {
+              display: block;
+              width: 30px;
+              height: 30px;
+              background: url(../img/video-item-icon.png) 7px -25px no-repeat $black;
+              opacity: 0.5;
+              border-radius: 8px;
+              padding: 7px;
+            }
+            a + a {
+              background: url(../img/video-item-icon.png) 7px 7px no-repeat $black;
+            }
+          }
+          &:hover {
+            cursor: pointer;
+            .video-item__preview {
+              display: flex;
+            }
+          } 
+        }
+      }
+    }
+  }
 }
+/*---------------------------- Header Box */
 .header-box {
   width: 100%;
   display: flex;
@@ -156,7 +254,7 @@ main {}
   padding: 20px 0 38px 0;
   span {
     @include font (34, 49);
-    color: #121212;
+    color: $black;
   }
   &__notification {
     display: flex;
@@ -178,7 +276,7 @@ main {}
           width: 8.75px;
           height: 8.75px;
           border-radius: 50%;
-          background-color: #FB8251;
+          background-color: $primary;
           @include abstr (0, 0)
         }
       }
@@ -192,6 +290,7 @@ main {}
     }
   }
 }
+/*---------------------------- Gallery, Save */
 .flame-box {
   width: 100%;
   max-width: 1150px;
@@ -202,7 +301,7 @@ main {}
     width: 100%;
     height: auto;
     border-radius: 20px;
-    background-color: #fff;
+    background-color: $white;
     padding: 32px 31px;
     &-gallery {
       display: flex;
@@ -233,7 +332,7 @@ main {}
           z-index: 1;
           width: 100%;
           height: 189px;
-          background-color: #121212;
+          background-color: $black;
           opacity: .4;
         }
         .content-gallery__preview {
@@ -242,7 +341,7 @@ main {}
           z-index: 2;
           li {
             box-sizing: border-box;
-            border: 1px solid #fff;
+            border: 1px solid $white;
             border-radius: 8px;
             margin-bottom: 8px;
             a{
@@ -256,21 +355,19 @@ main {}
                 overflow: hidden;
                 margin: 0;
                 &--message {
-                  background: url(../img/chat-icon.png) no-repeat;
-                  background-position: 0 -32px;
+                  background: url(../img/chat-icon.png) 0 -32px no-repeat;
                 }
                 &--video {
-                  background: url(../img/video-call-icon.png) no-repeat;
+                  background: url(../img/video-call-icon.png) 0 0 no-repeat;
                 }
                 &--favorite {
-                  background: url(../img/heart-icon.png) no-repeat;
-                  background-position: 0 -32px;
+                  background: url(../img/heart-icon.png) 0 -32px no-repeat;
                   &-active {
                     background-position: 0 -48px;
                   }
                 }
                 &--gift {
-                  background: url(../img/gift-icon.png) no-repeat;
+                  background: url(../img/gift-icon.png) 0 0 no-repeat;
                 }
               }
             }
@@ -280,7 +377,7 @@ main {}
           display: flex;
           align-items: center;
           @include font (20, 29);
-          color: #121212;
+          color: $black;
           margin-top: 8px;
         }
       }
@@ -291,7 +388,7 @@ main {}
           width: 9px;
           height: 9px;
           border-radius: 50%;
-          background-color: #29C318;
+          background-color: $green;
           margin-right: 10px;
         }
       }
@@ -302,7 +399,7 @@ main {}
           width: 9px;
           height: 9px;
           border-radius: 50%;
-          background-color: #FB8251;
+          background-color: $primary;
           margin-right: 10px;
         }
       }
@@ -313,24 +410,505 @@ main {}
     justify-content: center;
   }
 }
-.profile-man {
-  &__box {
+/*---------------------------- Profile */
+.content-box {
+  &__row {
     border-radius: 12px;
     overflow: hidden;
-    background-color: #FFF;
+    background-color: $white;
     &-top {
-      border-bottom: 1px solid #E7E7E7;
+      border-bottom: 1px solid $gray20;
       .row {
         display: flex;
-        flex-flow: row nowrap;
+        justify-content: space-between;
       }
     }
-    p {
+    &-name {
       @include font (30,43);
+      color: $black;
       padding: 30px 0 32px 32px;
+    }
+    &-content {
+      display: flex;
+      flex-flow: row nowrap;
+      .box-content__about {
+        max-width: 55%;
+        padding: 32px 0 49px 32px;
+        border-right: 1px solid $gray20;
+        &-box {
+          display: flex;
+          flex-flow: row wrap;
+          li {
+            display: flex;
+            align-items: center;
+            background-color: $gray20;
+            border-radius: 12px;
+            padding: 5px 10px;
+            width: max-content;
+            @include font (18,26);
+            margin: 8px 8px 0 0;
+            &:before {
+              content: "";
+              display: inline-block;
+              width: 24px;
+              height: 24px;
+              margin-right: 10px;
+            }
+            span {
+              margin-right: 5px;
+              color: $gray50;              
+            }
+            span + span {
+              color: $black;
+            }
+          }
+          .about {
+            &-work {
+              margin-right: 50px;
+              &:before {
+                background: url(../img/about-icon.png) 0 0 no-repeat;
+              }
+            }
+            &-family {
+              &:before {
+                background: url(../img/about-icon.png) 0 -24px  no-repeat;
+              }
+            }
+            &-location {
+              &:before {
+                background: url(../img/about-icon.png) 0 -48px no-repeat;
+              }
+            }
+            &-religion {
+              &:before {
+                background: url(../img/about-icon.png) 0 -72px no-repeat;
+              }
+            }
+            &-ethnic {
+              &:before {
+                background: url(../img/about-icon.png) 0 -96px no-repeat;
+              }
+            }
+            &-eye {
+              &:before {
+                background: url(../img/about-icon.png) 0 -120px no-repeat;
+              }
+            }
+            &-hair {
+              &:before {
+                background: url(../img/about-icon.png) 0 -144px no-repeat;
+              }
+            }
+            &-growth {
+              &:before {
+                background: url(../img/about-icon.png) 0 -168px no-repeat;
+              }
+            }
+            &-weight {
+              &:before {
+                background: url(../img/about-icon.png) 0 -192px no-repeat;
+              }
+            }
+            &-body {
+              &:before {
+                background: url(../img/about-icon.png) 0 -216px no-repeat;
+              }
+            }
+            &-children {
+              &:before {
+                background: url(../img/about-icon.png) 0 -240px no-repeat;
+              }
+            }
+            &-smoke {
+              &:before {
+                background: url(../img/about-icon.png) 0 -264px no-repeat;
+              }
+            }
+            &-alcohol {
+              &:before {
+                background: url(../img/about-icon.png) 0 -288px no-repeat;
+              }
+            }
+          }
+        }
+      }
+      .about-us {
+        &__title {
+          @include font (24,35);
+          color: $black;
+          padding-top: 0;
+        }
+        &__content {
+          @include font (18,26);
+          color: $gray50;
+          display: block;
+          padding: 16px 0 8px;
+          margin-right: 32px;
+        }
+      }
+      .box-content__options {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        &-box {
+          &--button {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 32px;
+            border-bottom: 1px solid $gray20;
+            button {
+              &:not(:first-child) {
+                margin-top: 8px;
+              }
+            }
+          }
+          &--balance {
+            padding: 32px;
+            border-bottom: 1px solid $gray20;
+            .balance-box {
+              border-radius: 12px;
+              background-color: $black;
+              padding: 16px;
+              &__title {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                @include font (24,35);
+                span {
+                  display: flex;
+                  align-items: center;
+                  color: $gray50;
+                  &:first-child {
+                    &:before {
+                      content: "";
+                      display: inline-block;
+                      width: 24px;
+                      height: 24px;
+                      background: url(../img/wallet-coin.png) 0 0 no-repeat;
+                      margin-right: 13px;
+                    }
+                  }
+                }
+                span + span {
+                  color: $white;
+                }
+              }
+            }
+          }
+          &--aboutthem {
+            padding: 32px;
+          }
+        }
+      }
     }
   }
 }
+/*---------------------------- Letters / Chat */
+.letters-box {
+  max-width: 390px;
+  border-right: 1px solid $gray20;
+  padding: 10px 24px 12px 64px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.chat-box {
+  &__row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.chat-top {
+  &__box {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid $gray20;
+    &-camera {
+      flex-shrink: 0;
+      width: 350px;
+      padding: 24px 17px 24px 32px;
+      border-right: 1px solid $gray20;
+    }
+    &-ident {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 31px;
+      .ident {
+        &-avatar {
+          display: flex;
+          flex-shrink: 0;
+          margin-right: 8px;
+          overflow: hidden;
+          img {
+            width: 49px;
+            height: 49px;
+            border-radius: 12px;
+            display: block;
+            object-fit: cover;
+          }
+        }
+        &-id {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          &__name {
+            @include font (18,26);
+            color: $black;
+          }
+          &__online {
+            @include font (14,17.5);
+            color: $primary;
+            margin-top: 3px;
+          }
+        }
+        &-more {
+          display: flex;
+          align-items: center;
+          a {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            overflow: hidden;
+          }
+          &__gift {
+            margin-right: 16px;
+            background: url(../img/dots+gift.png) 0 -24px no-repeat;
+          }
+          &__dots {
+            background: url(../img/dots+gift.png) 0 -48px no-repeat;
+            &.active {
+              background-position: 0 0;
+            }
+          }
+          &__dropdown {
+            @include font (14,17.5);
+            color: $gray50;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid $gray20;
+          }
+        }
+      }
+    }
+  }
+}
+.chat-message {
+  &__box {
+    width: 100%;
+    height: 655px;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 47px;
+    .message-contact {
+      &__box {
+        width: 350px;
+        border-right: 1px solid $gray20;
+        flex-shrink: 0;
+        overflow-y: scroll;
+        overflow-x: auto;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+        &-read {
+          &__dropdown {
+
+          }
+          @include font (14,17.5);
+          color: $gray50;
+          padding: 25px 16px 0 32px;
+          & > ul {
+            max-width: 350px;
+            display: flex;
+            flex-flow: column nowrap;
+            & > li {
+              margin-top: 16px;
+            }
+          }
+        }
+      }
+    }
+    .message-content {
+      &__box {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 32px 32px;
+        .content-text {
+          &__row {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow-y: scroll;
+            overflow-x: auto;
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+              width: 0;
+            }
+            .item-data {
+              @include font (14,20);
+              color: $gray50;
+              text-align: center;
+              margin: 16px 0 8px;
+            }
+          }
+          &__item {
+            max-width: 343px;
+            width: max-content;
+            display: flex;
+            align-items: flex-end;
+            padding: 5px 10px;
+            margin-top: 8px;
+            &--from {
+              align-self: flex-start;
+              border-radius: 10px 10px 10px 0;
+              background-color: $gray20;
+              .item-mess {
+                color: $black;
+                @include font (18,26);
+              }
+              .item-time {
+                color: $gray50;
+                @include font (14,17.5);
+              }
+            }
+            &--my {
+              align-self: flex-end;
+              border-radius: 10px 10px 0 10px;
+              background-color: $primary;
+              .item-mess {
+                color: $white;
+                @include font (18,26);
+              }
+              .item-time {
+                color: $white;
+                opacity: 0.5;
+                @include font (14,17.5);
+              }
+            }
+          }
+        }
+        .content-input {
+          &__row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px ;
+            input {
+              flex-grow: 1;
+              height: 36px;
+              border-radius: 10px;
+              border: none;
+              @include font (18,26);
+              color: $gray50;
+              background-color: $gray20;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.contact-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  &--active {
+    position: relative;
+    &:before {
+      content: "";
+      display: block;
+      width: 4px;
+      height: 65px;
+      border-radius: 0 2px 2px 0;
+      background-color: $primary;
+      @include abstl (-8px, -32px)
+    }
+  }
+  &__chat {
+    margin-top: 0;
+  }
+  &__avatar {
+    margin-right: 8px;
+    position: relative;
+    flex-shrink: 0;
+    img {
+      width: 49px;
+      height: 49px;
+      border-radius: 12px;
+      display: block;
+      object-fit: cover;
+    }
+    &--online {
+      &:after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: $green;
+        border: 2px solid $white;
+        @include abstl (40px, 40px)
+      }
+    }
+    &--video {
+      &:after {
+        content: "";
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: url(../img/video-call-icon-12.png) 3px 3px no-repeat $primary;
+        @include abstl (35px, 35px)
+      }
+    }
+  }
+  &__id {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    &--name {
+      @include font (18,26);
+      color: $black;
+      text-decoration: none;
+    }
+    &--mess {
+      @include font (14,17.5);
+      color: $gray50;
+    }
+  }
+  &__time {
+    @include font (14,17.5);
+    color: $gray50;
+    margin-top: 4px;
+  }
+  &__badge {
+    @include font (14,20);
+    color: $white;
+    background-color: $primary;
+    padding: 0 10px;
+    margin-top: 3px;
+    border-radius: 10px;
+    &--gray {
+      display: inline-block;
+      color: $black;
+      background-color: $gray20;
+      margin-left: 8px;
+    }
+  }
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 45px;
+  }
+
+}
+
+/*---------------------------- Buttons */
 .button-outline {
   @include font (17, 25);
   padding: 3px 16px;
@@ -338,35 +916,110 @@ main {}
   border: 1px solid;
   border-radius: 8px;
   margin: 0 8px 24px 0;
-  &__active {
+  &--active {
     background-color: #FFF2EC;
-    color: #FB8251;
+    color: $primary;
   }
-  &__default {
-    background-color: #fff;
-    color: #121212;
+  &--default {
+    background-color: $white;
+    color: $black;
     opacity: 0.4;
   }
-  &__black {
+  &--black {
     @include font (14,17.5);
-    background-color: #FFF;
-    color: rgba(18, 18, 18, 1);
+    background-color: $white;
+    color: $black;
     border-radius: 6px;
     padding: 5px 10px;
     margin-top: 8px;
   }
 }
+.button-without {
+  width: 100%;
+  @include font (18,26);
+  padding: 10px 20px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &--gray {
+    color: $black;
+    background-color: $gray20;
+  }
+  &__fromIcon {
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+    &--primary {
+      color: $white;
+      background-color: $primary;
+      &:before {
+        background: url(../img/woman-message-icon.png) 0 0 no-repeat;
+      }
+    }
+    &--blue {
+      color: $white;
+      background-color: $blue;
+      &:before {
+        background: url(../img/woman-message-icon.png) 0 -24px no-repeat;
+      }
+    }
+    &--purple {
+      color: $white;
+      background-color: $purple;
+      &:before {
+        background: url(../img/woman-message-icon.png) 0 -48px no-repeat;
+      }
+    }
+    &--red {
+      color: $white;
+      background-color: $red;
+      &:before {
+        background: url(../img/woman-message-icon.png) 0 -72px no-repeat;
+      }
+    }
+    &--camera {
+      color: $white;
+      background-color: $red;
+      &:before {
+        background: url(../img/video-call-icon-24.png) 0 0 no-repeat;
+      }
+      &-off {
+        background-color: $green;
+        &:before {
+          background: url(../img/video-call-icon-24.png) 0 -24px no-repeat;
+        }
+      }
+    }
+  }
+}
 .button-rounded {
-  &__default {
+  background-color: $primary;
+  color: $white;
+  &--more {
     @include font (18, 26);
     padding: 10px 23px;
-    box-sizing: border-box;
-    background-color: #FB8251;
-    border: 1px solid;
     border-radius: 14px;
-    color: #fff;
     margin-top: 24px;
   }
+  &--balance {
+    @include font (14,17.5);
+    padding: 6px 28px;
+    border-radius: 8px;
+    margin-top: 16px;
+  }
+}
+.button-send {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: url(../img/send-icon.png) 6px 6px no-repeat $gray20;
+  padding: 0;
+  margin-left: 8px;
 }
 
 

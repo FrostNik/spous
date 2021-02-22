@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Land of Love/Profile man</title>
+	<title>Land of Love/Letters</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -19,7 +19,7 @@
 					</div>
 					<div class="left-box__menu">
 						<ul class="left-box__menu-box">
-							<li class="active">
+							<li>
 								<a>
 									<span class="icon icon--user"></span>
 									Мой профиль
@@ -32,7 +32,12 @@
 							</li>
 							<li>
 								<a>
-									<span class="icon icon--message"></span>Сообщения
+									<span class="icon icon--chat"></span>Чат
+								</a>
+							</li>
+							<li class="active">
+								<a>
+									<span class="icon icon--letters"></span>Письма
 								</a>
 							</li>
 							<li>
@@ -41,14 +46,32 @@
 								</a>
 							</li>
 						</ul>
-						<div class="left-box__fill-notification">
-							<p>Заполните свой профиль</p>
-							<span>Эта информация поможет вам эффективней искать свою пару</span>
-							<button class="button-outline__black">Заполнить профиль</button>
-						</div>
-						<div class="left-box__fill-notification">
-							<p>У вас есть непрочитанные уведомления</p>
-							<button class="button-outline__black">Открыть уведомления</button>
+						<div class="left-box__video">
+							<div class="left-box__video-box">
+								<span>Дмитрий</span><a class="test" href="#"></a>
+								<div class="video-item"><img src="img/video-call-image-1.jpg" alt="">
+									<div class="video-item__dropdown-menu">
+										<a href="#">Не показывать трансляцию</a>
+										<a href="#">Закрыть трансляцию</a>
+									</div>
+									<div class="video-item__preview">
+										<a href="#"></a>
+										<a href="#"></a>
+									</div>
+								</div>
+							</div>
+							<div class="left-box__video-box">
+								<span>Дмитрий</span><a class="test" href="#"></a>
+								<div class="video-item"><img src="img/video-call-image-2.jpg" alt="">
+									<div class="video-item__dropdown-menu">
+										<a href="#">Не показывать трансляцию</a>
+										<a href="#">Закрыть трансляцию</a>
+									</div>
+									<div class="video-item__preview">
+										<a href="#"></a>
+										<a href="#"></a>
+									</div></div>
+							</div>
 						</div>
 					</div>
 					<div class="left-box__menu-box--exit">
@@ -57,7 +80,7 @@
 				</div>
 				<div class="flame-box">
 					<div class="header-box">
-						<span>Мой профиль</span>
+						<span>Чат</span>
 						<div class="header-box__notification">
 							<a class="header-box__notification-search" href="#">
 								<img src="img/search-icon.png" alt=""> 
@@ -70,16 +93,187 @@
 							</a>
 						</div>
 					</div>
-					<div class="profile-man__box">
-						<div class="profile-man__box-top">
-							<div class="row">
-								<img src="img/profile-image-1.jpg" alt="">
-								<img src="img/profile-image-2.jpg" alt="">
-								<img src="img/profile-image-3.jpg" alt="">
-								<img src="img/profile-image-4.jpg" alt="">
-								<img src="img/profile-image-5.jpg" alt="">
+					<div class="content-box__row">
+						<div class="chat-box__row">
+							<div class="chat-top__box">
+								<div class="chat-top__box-camera">
+									<button class="button-without button-without__fromIcon button-without__fromIcon--camera button-without__fromIcon--camera-off">Включить камеру</button>
+								</div>
+								<div class="chat-top__box-ident">
+									<div class="ident-avatar">
+										<img src="img/gallery-image-5.png" alt="">
+									</div>
+									<div class="ident-id">
+										<span class="ident-id__name">Оби</span>
+										<span class="ident-id__online">в сети</span>
+									</div>
+									<div class="ident-more">
+										<a class="ident-more__gift" href="#"></a>
+										<a class="ident-more__dots" href="#"></a>
+										<ul class="ident-more__dropdown">
+											<li>Добавить в избранное</li>
+											<li>Не показывать трансляцию</li>
+											<li>Скрыть онлайн</li>
+											<li>Закрепить</li>
+											<li>Удалить чат
+												<select name="" id="">
+													<option value="">item 1</option>
+													<option value="">item 2</option>
+													<option value="">item 3</option>
+												</select>
+											</li>
+										</ul>
+									</div>
+								</div>
 							</div>
-							<p>Константинопольский Константин Константинович, 32</p>
+							<div class="chat-message__box">
+								<div class="message-contact__box">
+									<div class="message-contact__box-read">
+										<div class="read_row">
+											Непрочитанные
+											<div class="contact-content__badge contact-content__badge--gray">11</div>
+											<div class="box-read__dropdown">Все</div>
+										</div>
+										<ul >
+											<li class="contact-content">
+												<div class="contact-content__avatar contact-content__avatar--video"><img src="img/avatar-1.jpg" alt=""></div>
+												<div class="contact-content__id">
+													<a class="contact-content__id--name" href="#">Алиса</a>
+													<span class="contact-content__id--mess">Привет! Рада познакомиться.</span>
+												</div>
+												<div class="contact-content__box">
+												<span class="contact-content__time">18:29</span>
+												<span class="contact-content__badge">11</span>
+											</div>
+											</li>
+											<li class="contact-content">
+												<div class="contact-content__avatar contact-content__avatar--online"><img src="img/avatar-11.png" alt=""></div>
+												<div class="contact-content__id">
+													<a class="contact-content__id--name" href="#">Кира</a>
+													<span class="contact-content__id--mess">Почему ты меня игнорируешь?</span>
+												</div>
+												<div class="contact-content__box">
+												<span class="contact-content__time">18:29</span>
+												<span class="contact-content__badge">242</span>
+											</div>
+											</li>
+											<li class="contact-content">
+												<div class="contact-content__avatar contact-content__avatar--video"><img src="img/avatar-12.png" alt=""></div>
+												<div class="contact-content__id">
+													<a class="contact-content__id--name" href="#">Кимсен</a>
+													<span class="contact-content__id--mess">Ну вообще-то, некрасиво так...</span>
+												</div>
+												<div class="contact-content__box">
+												<span class="contact-content__time">18:29</span>
+												<span class="contact-content__badge">1</span>
+											</div>
+											</li>
+										</ul>
+									</div>
+									<div class="message-contact__box-read">
+										Прочитанные
+										<ul >
+											<li class="contact-content contact-content--active">
+												<div class="contact-content__avatar contact-content__avatar--video"><img src="img/gallery-image-5.png" alt=""></div>
+												<div class="contact-content__id">
+													<a class="contact-content__id--name" href="#">Оби</a>
+													<span class="contact-content__id--mess">Очень круто!</span>
+												</div>
+												<div class="contact-content__box">
+												<span class="contact-content__time">18:29</span>
+											</div>
+											</li>
+											<li class="contact-content">
+												<div class="contact-content__avatar contact-content__avatar--online"><img src="img/avatar-13.png" alt=""></div>
+												<div class="contact-content__id">
+													<a class="contact-content__id--name" href="#">Иванка</a>
+													<span class="contact-content__id--mess">Привет! Рада познакомиться.</span>
+												</div>
+												<div class="contact-content__box">
+												<span class="contact-content__time">18:29</span>
+											</div>
+											</li>
+											<li class="contact-content">
+												<div class="contact-content__avatar contact-content__avatar--video"><img src="img/avatar-14.png" alt=""></div>
+												<div class="contact-content__id">
+													<a class="contact-content__id--name" href="#">Георгина</a>
+													<span class="contact-content__id--mess">Привет! Рада познакомиться.</span>
+												</div>
+												<div class="contact-content__box">
+												<span class="contact-content__time">18:29</span>
+											</div>
+											</li>
+											<li class="contact-content">
+												<div class="contact-content__avatar"><img src="img/avatar-15.png" alt=""></div>
+												<div class="contact-content__id">
+													<a class="contact-content__id--name" href="#">Марина</a>
+													<span class="contact-content__id--mess">Привет! Рада познакомиться.</span>
+												</div>
+												<div class="contact-content__box">
+												<span class="contact-content__time">18:29</span>
+											</div>
+											</li>
+											<li class="contact-content">
+												<div class="contact-content__avatar"><img src="img/avatar-16.png" alt=""></div>
+												<div class="contact-content__id">
+													<a class="contact-content__id--name" href="#">Антонина</a>
+													<span class="contact-content__id--mess">Привет! Рада познакомиться.</span>
+												</div>
+												<div class="contact-content__box">
+												<span class="contact-content__time">18:29</span>
+											</div>
+											</li>
+											<li class="contact-content">
+												<div class="contact-content__avatar"><img src="img/avatar-17.png" alt=""></div>
+												<div class="contact-content__id">
+													<a class="contact-content__id--name" href="#">Антонина</a>
+													<span class="contact-content__id--mess">Привет! Рада познакомиться.</span>
+												</div>
+												<div class="contact-content__box">
+												<span class="contact-content__time">18:29</span>
+											</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="message-content__box">
+									<ul class="content-text__row">
+										<li class="content-text__item content-text__item--from">
+											<span class="item-mess">Сообщение уже в несколько строк, это максимальная длина. Пишем что угодно, бла-бла-бла</span>
+											<span class="item-time">18:29</span>
+										</li>
+										<li class="item-data">Сегодня</li>
+										<li class="content-text__item content-text__item--my">
+											<span class="item-mess">Сообщение уже в несколько строк, это максимальная длина. Пишем что угодно, бла-бла-бла</span>
+											<span class="item-time">18:29</span>
+										</li>
+										<li class="content-text__item content-text__item--my">
+											<span class="item-mess">Снова короткое сообщение</span>
+											<span class="item-time">18:29</span>
+										</li>
+										<li class="content-text__item content-text__item--my">
+											<span class="item-mess">Cообщение уже в несколько строк, это максимальная длина. Пишем что угдно, бла-бла-бла. Это сообщение от первого лица, если ещё непонятно</span>
+											<span class="item-time">18:29</span>
+										</li>
+										<li class="content-text__item content-text__item--from">
+											<span class="item-mess">Сообщение уже в несколько строк, это максимальная длина. Пишем что угодно, бла-бла-бла</span>
+											<span class="item-time">18:29</span>
+										</li>
+										<li class="content-text__item content-text__item--from">
+											<span class="item-mess">Сообщение на максимум длины в одну</span>
+											<span class="item-time">18:29</span>
+										</li>
+										<li class="content-text__item content-text__item--from">
+											<span class="item-mess">Короткое сообщение</span>
+											<span class="item-time">18:29</span>
+										</li>
+									</ul>
+									<div class="content-input__row">
+										<input type="text" placeholder="Введите своё сообщение…">
+										<button class="button-send"></button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -87,6 +281,7 @@
 	</main>
 
 	<footer></footer>	
-	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>
