@@ -15,7 +15,7 @@ header {}
 
 /*------------------------------------ Content */
 main {}
-.black {
+.body-black {
   background-color: $black;
 }
 .container {
@@ -429,9 +429,28 @@ main {}
     background-color: $white;
     &-top {
       border-bottom: 1px solid $gray20;
-      .row {
+      position: relative;
+      .slider-row {
         display: flex;
         justify-content: space-between;
+      }
+      .gallery-length {
+        display: flex;
+        align-items: center;
+        padding: 4px 16px;
+        border-radius: 8px;
+        @include abstr (189px,16px);
+        color: $white;
+        background-color: rgba(26, 26, 26, 0.8);
+        &:before {
+          content: "";
+          display: block;
+          width: 16px;
+          height: 16px;
+          background: url(../img/photo-camera-icon.png) 0 0 no-repeat;
+          margin-right: 10px;
+        }        
+
       }
     }
     &-name {
@@ -794,80 +813,111 @@ main {}
         }
       }
     }
-    .message-content {
-      &__box {
+  }
+}
+.message-content {
+  &__box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 32px 32px;
+    &--watch {
+      margin: 0;
+      height: 560px;
+    }
+    .content-text {
+      &__row {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        margin: 0 32px 32px;
-        .content-text {
-          &__row {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            overflow-y: scroll;
-            overflow-x: auto;
-            scrollbar-width: none;
-            &::-webkit-scrollbar {
-              width: 0;
-            }
-            .item-data {
-              @include font (14,20);
-              color: $gray50;
-              text-align: center;
-              margin: 16px 0 8px;
+        flex-grow: 1;
+        overflow-y: scroll;
+        overflow-x: auto;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+        .item-data {
+          @include font (14,20);
+          color: $gray50;
+          text-align: center;
+          margin: 16px 0 8px;
+        }
+      }
+      &__item {
+        max-width: 343px;
+        width: max-content;
+        display: flex;
+        align-items: flex-end;
+        padding: 5px 10px;
+        margin-top: 8px;
+        &--from {
+          align-self: flex-start;
+          border-radius: 10px 10px 10px 0;
+          background-color: $gray20;
+          &--watch {
+            background-color: rgba(255, 255, 255, 0.2);
+            max-width: 373px;
+          }
+          .item-mess {
+            color: $black;
+            @include font (18,26);
+            &--watch {
+              color: $white;
             }
           }
-          &__item {
-            max-width: 343px;
-            width: max-content;
-            display: flex;
-            align-items: flex-end;
-            padding: 5px 10px;
-            margin-top: 8px;
-            &--from {
-              align-self: flex-start;
-              border-radius: 10px 10px 10px 0;
-              background-color: $gray20;
-              .item-mess {
-                color: $black;
-                @include font (18,26);
-              }
-              .item-time {
-                color: $gray50;
-                @include font (14,17.5);
-              }
+          .item-time {
+            color: $gray50;
+            @include font (14,17.5);
+            &--watch {
+              color: rgba(255, 255, 255, 0.2);
             }
-            &--my {
-              align-self: flex-end;
-              border-radius: 10px 10px 0 10px;
-              background-color: $primary;
-              .item-mess {
-                color: $white;
-                @include font (18,26);
-              }
-              .item-time {
-                color: $white;
-                opacity: 0.5;
-                @include font (14,17.5);
-              }
+
+          }
+        }
+        &--my {
+          align-self: flex-end;
+          border-radius: 10px 10px 0 10px;
+          background-color: $primary;
+          &--watch {
+            background-color: $white;
+
+          }
+
+          .item-mess {
+            color: $white;
+            @include font (18,26);
+            &--watch {
+              color: $black;
+            }
+          }
+          .item-time {
+            color: rgba(255, 255, 255, 0.5);
+            margin-left: 5px;
+            @include font (14,17.5);
+            &--watch {
+              color: rgba(26, 26, 26, 0.5);
+
             }
           }
         }
-        .content-input {
-          &__row {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 16px ;
-            input {
-              flex-grow: 1;
-              height: 36px;
-              border-radius: 10px;
-              border: none;
-              @include font (18,26);
-              color: $gray50;
-              background-color: $gray20;
-            }
+      }
+    }
+    .content-input {
+      &__row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 16px ;
+        .input-chat {
+          flex-grow: 1;
+          height: 36px;
+          border-radius: 10px;
+          border: none;
+          @include font (18,26);
+          color: $gray50;
+          background-color: $gray20;
+          &--watch {
+            border: 1px solid $white;
+            background-color: transparent;
           }
         }
       }
@@ -997,10 +1047,43 @@ main {}
 }
 /*---------------------------- Life */
 .life-row {
-  margin: auto 47px auto 87px;
+  width: 100%;
+  margin: auto 87px auto 87px;
+  &--watch {
+    display: flex;
+  }
+  .watch-box {
+    &__left {
+      width: 50%;
+      margin-top: 106px;
+    }
+    &__right {
+      width: 50%;
+      margin-left: 72px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -83px;
+        left: 72px;
+        width: 100%;
+        height: 420px;
+        background: linear-gradient(
+          rgba(26, 26, 26, 1),
+          rgba(26, 26, 26, 0.7),
+          rgba(24, 24, 24, 0.5),
+          rgba(18, 18, 18, 0));
+      }
+      
+    }
+
+  }
   .life-top {
     display: flex;
     margin-bottom: 16px;
+    &--oneuser {
+      margin-left: 310px;
+    }
     &__view {
       display: flex;
       align-items: center;
@@ -1021,39 +1104,53 @@ main {}
   }
   .life-content {
     display: flex;
+    justify-content: center;
+    &--watch {
+      justify-content: start;
+      flex-flow: column;
+    }
     &__item {
       display: flex;
+      width: max-content;
       position: relative;
       margin-right: 16px;
-      img {
-        display: block;
+      &--watch {
+        
+      }
+      .item-img {
+        width: 625px;
+        height: 412px;
         border-radius: 20px;
+        object-fit: cover;
+        overflow: hidden;
+        position: relative;
+        &:hover {
+          .item-gradient {
+            display: flex;
+          }
+        }
+        .item-gradient {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 83px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          @include font (24,35);
+          color: $white;
+          background: linear-gradient(rgba(26, 26, 26, 0), rgba(26, 26, 26, 1));
+        }
       }
       a {
+        margin-left: 16px;
         &:before {
           content: "";
           display: block;
           width: 24px;
           height: 24px;
           background: url(../img/life-icon.png) 0 -16px no-repeat;
-        }
-      }
-      .item-gradient {
-        display: none;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 83px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        @include font (24,35);
-        color: $white;
-        background: linear-gradient(rgba(26, 26, 26, 0), rgba(26, 26, 26, 1));
-      }
-      &:hover {
-        .item-gradient {
-          display: flex;
         }
       }
     }
@@ -1142,8 +1239,13 @@ main {}
       z-index: 2;
       position: absolute;
       top: 32px;
-      left: calc(50% - 145px);
+      left: calc(50% - 155px);
       max-width: max-content;
+      &-endwatch {
+        margin: 32px auto;
+        width: 100%;
+        max-width: max-content;
+      }
     }
   }
 }
@@ -1275,9 +1377,14 @@ main {}
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: url(../img/send-icon.png) 6px 6px no-repeat $gray20;
+  background: url(../img/send-icon.png) 5px 6px no-repeat $gray20;
   padding: 0;
   margin-left: 8px;
+  &--watch {
+    background-position: 5px -24px;
+    border: 1px solid $white;
+    background-color: transparent;
+  }
 }
 
 /*---------------------------- Drop */
